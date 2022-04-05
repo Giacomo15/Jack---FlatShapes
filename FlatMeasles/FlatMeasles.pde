@@ -33,9 +33,9 @@ if ( orientation=="Landscape or Square" ) {
 */
 //
 //Variable Population: notice using appWidth & appHeight to move between size() & fullScreen()
-smallerDisplayDimesion = height; //ALWAYS in Landscape
+smallerDisplayDimesion = appHeight; //ALWAYS in Landscape
 reset = smallerDisplayDimesion / smallerDisplayDimesion; //returns "1"
-rectFaceX = (width*1/2) - (smallerDisplayDimesion*1/2);
+rectFaceX = (appWidth*1/2) - (smallerDisplayDimesion*1/2);
 rectFaceY = appHeight*0;
 rectFaceWidth = smallerDisplayDimesion; //Square Shape
 rectFaceHeight = smallerDisplayDimesion; //Square Shape
@@ -80,14 +80,18 @@ triangle(xNose1, yNose1, xNose2, yNose2, xNose3, yNose3);
 //rect();
 strokeWeight(mouthOpen); //testing: 100=400/4, mouthOpen=height*1/4
 line(mouthX1, mouthY1, mouthX2, mouthY2);
-strokeWeight(reset); //
+strokeWeight(reset); //reset to 1 pixel
 //
 //Measle
-float measleX = appWidth*1/2;
-float measleY = appHeight*1/2;
-float measleDiameter = smallerDisplayDimesion*1/100;
-color red=#FF0000, measleColour=red; //Note: need range here too
+float measleDiameter = random( smallerDisplayDimesion*1/100 , smallerDisplayDimesion*1/25); //Range of measle size: small=*1/100, large=4xbigger (*1/25)
+float measleRadius = measleDiameter*1/2;
+float measleX = random( rectFaceX+measleRadius , (( rectFaceX+rectFaceWidth ) - measleRadius ) );
+float measleY = random( rectFaceY+measleRadius , (( rectFaceY+rectFaceHeight ) - measleRadius ) );
+color red=#FF0000, measleColour=red, whiteReset=#000000; //Note: need range here too
 //rect();
 //random values given other variables (similar to button code)
+noStroke(); //Shape outline
 fill(measleColour);
-ellipse( measleX, measleY, measleDiameter, measleDiameter); 
+ellipse( measleX, measleY, measleDiameter, measleDiameter ); 
+stroke(reset); //reset to 1 pixel
+fill(whiteReset); //reset to first colour (i.e. blackReset)
