@@ -1,5 +1,6 @@
 //Global Variables
 int reset, smallerDisplayDimesion, mouthOpen;
+int appWidth = displayWidth, appHeight = displayHeight;
 float rectFaceX, rectFaceY, rectFaceWidth, rectFaceHeight;
 float faceX, faceY, faceDiameter;
 float leftEyeX, leftEyeY, rightEyeX, rightEyeY, eyeDiameter; 
@@ -13,7 +14,6 @@ void setup()
   fullScreen();
   println(displayWidth, displayHeight);
   //Landscape, not square or portrait
-  int appWidth = width, appHeight = height; //Swap with displayWidth, displayHeight for testing
   println (width, height, displayWidth, displayHeight); //Verification of values
   println(appWidth, appHeight); //Canvas Flexibility
   //
@@ -71,7 +71,7 @@ void setup()
 //
 void draw()
 {
-  measleDraw();
+  buttonDraw();
   //Left Eye
   //rect(leftEyeX-eyeDiameter*1/2, leftEyeY-eyeDiameter*1/2, eyeDiameter, eyeDiameter);
   ellipse(leftEyeX, leftEyeY, eyeDiameter, eyeDiameter);
@@ -94,7 +94,6 @@ void draw()
   //comparison rect() line only, no caps, no strokeWeight
   //rect(mouthX1, mouthY1, mouthWidth, mouthHeight); 
   //
-  buttonDraw();
 }//End draw
 //
 void keyPressed() {

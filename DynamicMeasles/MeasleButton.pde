@@ -1,9 +1,10 @@
 //Global Variables
 float startButtonX, startButtonY, startButtonWidth, startButtonHeight;
+int startButtonX = leftEyeX, startButtonY = leftEyeY
 //
 void buttonSetup() {
-  int centerX = leftEyeX;
-  int centerY = leftEyeY;
+  float centerX = appWidth*1.4/4;
+  float centerY = leftEyeY;
 }
 void buttonDraw() {
   if (mouseX>startButtonX && mouseX<startButtonX && mouseY>startButtonY && mouseY<startButtonY ) {
@@ -11,4 +12,5 @@ void buttonDraw() {
   } else {
     measleDraw = false;
   }
+  rect ( startButtonX, startButtonY, startButtonWidth, startButtonHeight );
 }
